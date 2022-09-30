@@ -1,0 +1,8 @@
+<div class="container">
+<app-header></app-header>
+<app-badge (click)="search()" [title]="badgeValue">
+</app-badge>
+<ng-template [ngIf]="isCardVisible">
+    <app-card [meal]="meal"></app-card>
+</ng-template>
+</div>

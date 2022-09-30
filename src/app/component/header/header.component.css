@@ -1,0 +1,15 @@
+img {
+    height: 3rem;
+    padding-left: 1rem;
+}
+
+.header {
+	display: flex;
+	justify-content: center;
+	font-family: proxima-nova, sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fffffe;
+    padding-top: 3rem;
+    align-items: center;
+}

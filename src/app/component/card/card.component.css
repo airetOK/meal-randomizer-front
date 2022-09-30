@@ -1,0 +1,95 @@
+a {
+  color: #e16162;
+}
+
+.card {
+    background: #abd1c6;
+    border: 3px solid #001e1d;
+    margin-right: 35%;
+    margin-left: 35%;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    overflow: hidden;
+    transition: opacity 2s;
+}
+
+.card__cover {
+    height: 22rem;
+    width: 100%;
+}
+
+.card__content {
+    text-align: center;
+    font-family: proxima-nova, sans-serif;
+    flex: 1;
+    border-top: 3px solid #001e1d;
+    max-height: 10rem;
+    overflow-y: auto;
+    font-size: 1.2rem;
+    line-height: 1.4;
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+.card__content .title {
+  color: #e16162;
+  font-weight: 700;
+  font-size: larger;
+}
+
+.card__content .area {
+  color: #e16162;
+  font-weight: 500;
+  margin: 0;
+  padding-left: 0.5rem;
+  text-align: left;
+}
+
+p:nth-child(1) { margin: 1em 0 0 0; }
+p:nth-child(2) { margin: 0; }
+p:nth-child(3) { margin: 0; }
+p:nth-child(4) { margin: 0 0 1em 0; }
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+@media (min-width: 320px) and (max-width: 600px) {
+  .card {
+    margin-right: 5%;
+    margin-left: 5%;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 920px) {
+  .card {
+    margin-right: 15%;
+    margin-left: 15%;
+  }
+}
+
+@media (min-width: 920px) and (max-width: 1220px) {
+  .card {
+    margin-right: 25%;
+    margin-left: 25%;
+  }
+}
+
+@media (min-width: 1220px) and (max-width: 1520px) {
+  .card {
+    margin-right: 30%;
+    margin-left: 30%;
+  }
+}
