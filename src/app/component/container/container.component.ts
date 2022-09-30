@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Meal } from 'src/app/entity/Meal';
 import { MealJsonResponse } from 'src/app/entity/MealJsonResponse';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-container',
@@ -21,7 +22,7 @@ export class ContainerComponent implements OnInit {
   }
 
   search(): void {
-    this.http.get("http://localhost:8070/meal/random", { observe: 'response' })
+    this.http.get(environment.API_URL + "/meal/v1/random", { observe: 'response' })
     .subscribe(res => {  
       if (res.status == 200) {
         this.badgeValue = "RETRY";
