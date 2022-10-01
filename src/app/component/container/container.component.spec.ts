@@ -1,4 +1,8 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { BadgeComponent } from '../badge/badge.component';
+import { CardComponent } from '../card/card.component';
+import { HeaderComponent } from '../header/header.component';
 
 import { ContainerComponent } from './container.component';
 
@@ -8,7 +12,11 @@ describe('ContainerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ContainerComponent ]
+      imports: [ HttpClientModule ],
+      declarations: [ ContainerComponent, 
+                      BadgeComponent, 
+                      HeaderComponent, 
+                      CardComponent ]
     })
     .compileComponents();
   });
