@@ -15,6 +15,7 @@ export class ContainerComponent implements OnInit {
 
   badgeValue: string = '';
   isCardVisible: boolean = false;
+  isProgressBarVisible: boolean = false;
   meals: MealJsonResponse = new MealJsonResponse();
   meal: Meal = new Meal();
 
@@ -22,14 +23,22 @@ export class ContainerComponent implements OnInit {
   }
 
   search(): void {
+    this.isProgressBarVisible = true;
+    this.isCardVisible = false;
     this.http.get(environment.API_URL + "/meal/v1/random", { observe: 'response' })
-    .subscribe(res => {  
-      if (res.status == 200) {
+    .subscribe({
+      next: (res) => {
         this.badgeValue = "RETRY";
         this.meals = JSON.parse(JSON.stringify(res.body));
         this.isCardVisible = true;
         this.meal = this.meals.meals[0];
         console.log(this.meal);
+        this.isProgressBarVisible = false;
+      },
+      error: (err) => {
+        console.error(err);
+        alert('ERROR POP UP SHOULD APPEAR!');
+        this.isProgressBarVisible = false;
       }
     });
   }

@@ -9,12 +9,14 @@ a {
     margin-left: 35%;
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
     overflow: hidden;
     transition: opacity 2s;
 }
 
 .card__cover {
-    height: 22rem;
+    height: 19rem;
     width: 100%;
 }
 
@@ -23,7 +25,7 @@ a {
     font-family: proxima-nova, sans-serif;
     flex: 1;
     border-top: 3px solid #001e1d;
-    max-height: 10rem;
+    max-height: 11rem;
     overflow-y: auto;
     font-size: 1.2rem;
     line-height: 1.4;

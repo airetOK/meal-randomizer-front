@@ -1,7 +1,14 @@
 <div class="container">
 <app-header></app-header>
-<app-badge (click)="search()" [title]="badgeValue">
-</app-badge>
+
+<div *ngIf="isProgressBarVisible; then showSearchBadge else showProgressBar"></div>
+<ng-template #showProgressBar>
+    <app-badge (click)="search()" [title]="badgeValue"></app-badge>
+</ng-template>
+<ng-template #showSearchBadge>
+    <app-progress-bar></app-progress-bar>
+</ng-template>
+
 <ng-template [ngIf]="isCardVisible">
     <app-card [meal]="meal"></app-card>
 </ng-template>
