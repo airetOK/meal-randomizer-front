@@ -5,8 +5,12 @@
         <div class="area">
             <p><strong>Area: </strong><span>{{meal.strArea}}</span></p>
             <p><strong>Category: </strong><span>{{meal.strCategory}}</span></p>
-            <p><strong>Video: </strong><a title={{meal.strYoutube}} target="_blank" href={{meal.strYoutube}}>Link</a></p>
-            <p><strong>Source: </strong><a title={{meal.strSource}} target="_blank" href={{meal.strSource}}>Link</a></p>
+            <ng-template [ngIf]="isEmpty(meal.strYoutube)">
+                <p><strong>Video: </strong><a title={{meal.strYoutube}} target="_blank" href={{meal.strYoutube}}>Link</a></p>
+            </ng-template>
+            <ng-template [ngIf]="isEmpty(meal.strSource)">
+                <p><strong>Source: </strong><a title={{meal.strSource}} target="_blank" href={{meal.strSource}}>Link</a></p>
+            </ng-template>
         </div>
         {{meal.strInstructions}}
     </div>

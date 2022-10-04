@@ -32,7 +32,6 @@ export class ContainerComponent implements OnInit {
         this.meals = JSON.parse(JSON.stringify(res.body));
         this.isCardVisible = true;
         this.meal = this.meals.meals[0];
-        console.log(this.meal);
         this.isProgressBarVisible = false;
       },
       error: (err) => {
