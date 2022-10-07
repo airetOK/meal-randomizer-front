@@ -13,3 +13,21 @@ img {
     padding-top: 3rem;
     align-items: center;
 }
+
+.links {
+    flex-wrap: wrap;
+    padding-top: 1rem;
+    font-size: 1.5rem;
+    font-weight: 550;
+    gap: 1rem;
+}
+
+.links a {
+    text-decoration: none;
+    color: #f9bc60;
+    cursor: pointer;
+}
+
+.links a:hover {
+    transform: scale(1.05);
+}

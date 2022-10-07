@@ -21,5 +21,7 @@ describe('HeaderComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+    const links: HTMLElement[] = fixture.nativeElement.querySelectorAll('.links');
+    expect(links.length).toBe(1);
   });
 });

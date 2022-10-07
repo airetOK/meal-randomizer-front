@@ -1,5 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Constants } from 'src/app/constants';
 import { BadgeComponent } from '../badge/badge.component';
 import { CardComponent } from '../card/card.component';
 import { HeaderComponent } from '../header/header.component';
@@ -29,5 +30,12 @@ describe('ContainerComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('show About modal', () => {
+    component.isAboutDialogVisible = true;
+    fixture.detectChanges();
+    const about: HTMLElement = fixture.nativeElement.querySelector('.about');
+    expect(about.innerHTML.trim()).toBe(Constants.about.eng);
   });
 });
