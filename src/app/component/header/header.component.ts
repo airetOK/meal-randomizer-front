@@ -18,4 +18,8 @@ export class HeaderComponent implements OnInit {
     this.showAboutEvent.emit(true);
   }
 
+  refresh(): void {
+    window.location.reload(); 
+  } 
+
 }

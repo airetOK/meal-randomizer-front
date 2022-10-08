@@ -31,3 +31,7 @@ img {
 .links a:hover {
     transform: scale(1.05);
 }
+
+.header span {
+    cursor: pointer;
+}
