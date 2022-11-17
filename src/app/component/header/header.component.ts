@@ -8,6 +8,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
   @Output() showAboutEvent = new EventEmitter<boolean>();
+  @Output() showSearchEvent = new EventEmitter<boolean>();
 
   constructor() { }
 
@@ -16,6 +17,10 @@ export class HeaderComponent implements OnInit {
 
   public showAbout(): void {
     this.showAboutEvent.emit(true);
+  }
+
+  public showSearch(): void {
+    this.showSearchEvent.emit(true);
   }
 
   refresh(): void {

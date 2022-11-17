@@ -1,5 +1,7 @@
 <div class="container">
-<app-header (showAboutEvent)="showAboutDialog($event)"></app-header>
+<app-header (showAboutEvent)="showAboutDialog($event)"
+            (showSearchEvent)="showSearchDialog($event)">
+</app-header>
 
 <div *ngIf="isProgressBarVisible; then showSearchBadge else showProgressBar"></div>
     <ng-template #showProgressBar>
@@ -9,16 +11,16 @@
         <app-progress-bar></app-progress-bar>
     </ng-template>
 
-<div *ngIf="isAboutDialogVisible; then showAboutDialogWindow else hideAboutDialogWindow"></div>
-<ng-template #hideAboutDialogWindow>
-    <ng-template [ngIf]="isCardVisible">
-        <app-card [meal]="meal"></app-card>
-    </ng-template>
-</ng-template>
-<ng-template #showAboutDialogWindow>
+<div *ngIf="isAboutDialogVisible">
     <div class="about">
         {{about}}
     </div>
-</ng-template>
+</div>
+<div *ngIf="isCardVisible">
+    <app-card [meal]="meal"></app-card>
+</div>
+<div *ngIf="isSearchDialogVisible">
+    <app-search></app-search>
+</div>
 
 </div>

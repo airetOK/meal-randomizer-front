@@ -20,6 +20,7 @@ export class ContainerComponent implements OnInit {
   meals: MealJsonResponse = new MealJsonResponse();
   meal: Meal = new Meal();
   isAboutDialogVisible = false;
+  isSearchDialogVisible = false;
   about = Constants.about.eng; 
 
   ngOnInit(): void {
@@ -27,6 +28,14 @@ export class ContainerComponent implements OnInit {
   
   showAboutDialog(event: boolean) {
     this.isAboutDialogVisible = event;
+    this.isSearchDialogVisible = false;
+    this.isCardVisible = false;
+  }
+
+  showSearchDialog(event: boolean) {
+    this.isSearchDialogVisible = event;
+    this.isCardVisible = false;
+    this.isAboutDialogVisible = false;
   }
 
   search(): void {

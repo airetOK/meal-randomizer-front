@@ -9,6 +9,7 @@ import { BadgeComponent } from './component/badge/badge.component';
 import { ContainerComponent } from './component/container/container.component';
 import { CardComponent } from './component/card/card.component';
 import { ProgressBarComponent } from './component/progress-bar/progress-bar.component';
+import { SearchComponent } from './component/search/search.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ProgressBarComponent } from './component/progress-bar/progress-bar.comp
     BadgeComponent,
     ContainerComponent,
     CardComponent,
-    ProgressBarComponent
+    ProgressBarComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
