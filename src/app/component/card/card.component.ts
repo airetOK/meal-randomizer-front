@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges } from '@angular/core';
+import { Component, Input, OnChanges, AfterViewChecked, OnDestroy } from '@angular/core';
 import { Meal } from 'src/app/entity/Meal';
 
 @Component({
@@ -13,22 +13,17 @@ export class CardComponent implements OnChanges {
   constructor() {}
 
   ngOnChanges(): void {
-    const cardCoverStyle = (<HTMLElement>document.querySelector(".card__cover")).style;
-    this.setDefaultImageIfMealThumbNotPresent(this.meal.strMealThumb, cardCoverStyle);
-    cardCoverStyle.backgroundSize = '100% 100%';
-    cardCoverStyle.backgroundRepeat = 'no-repeat';
-    }
+    this.setDefaultImageIfMealThumbNotPresent(this.meal.strMealThumb, this.meal);
+  }
 
-    public isEmpty(value: string): boolean {
-      return value ? true : false;
-    }
+  public isEmpty(value: string): boolean {
+    return value ? true : false;
+  }
 
-    private setDefaultImageIfMealThumbNotPresent(mealThumb: string, style: CSSStyleDeclaration) {
-      if (!mealThumb) {
-        style.backgroundImage = 'url("/assets/no-image-available.jpg")'
-      } else {
-        style.backgroundImage = 'url(' + mealThumb + ')';
-      }
+  private setDefaultImageIfMealThumbNotPresent(mealThumb: string, meal: Meal) {
+    if (!mealThumb) {
+      meal.strMealThumb = '/assets/no-image-available.jpg'
     }
+  }
 
 }

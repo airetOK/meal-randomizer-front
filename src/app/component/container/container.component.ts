@@ -38,10 +38,16 @@ export class ContainerComponent implements OnInit {
     this.isAboutDialogVisible = false;
   }
 
+  getMealsByFirstLetter(event: MealJsonResponse) {
+    this.meals = event;
+    console.log(this.meals);
+  }
+
   search(): void {
     this.isProgressBarVisible = true;
     this.isCardVisible = false;
     this.isAboutDialogVisible = false;
+    this.isSearchDialogVisible = false;
     this.http.get(environment.API_URL + "/meal/v1/random", { observe: 'response' })
     .subscribe({
       next: (res) => {

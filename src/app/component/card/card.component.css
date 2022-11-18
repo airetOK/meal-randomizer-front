@@ -18,6 +18,8 @@ a {
 .card__cover {
     height: 19rem;
     width: 100%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
 }
 
 .card__content {
