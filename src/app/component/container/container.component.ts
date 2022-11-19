@@ -15,12 +15,14 @@ export class ContainerComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   badgeValue: string = '';
+  letter: string = '';
   isCardVisible: boolean = false;
   isProgressBarVisible: boolean = false;
   meals: MealJsonResponse = new MealJsonResponse();
   meal: Meal = new Meal();
   isAboutDialogVisible = false;
   isSearchDialogVisible = false;
+  isMealsEmpty: any = null;
   about = Constants.about.eng; 
 
   ngOnInit(): void {
@@ -38,9 +40,16 @@ export class ContainerComponent implements OnInit {
     this.isAboutDialogVisible = false;
   }
 
+  showMeals(event: boolean) {
+    this.isMealsEmpty = event;
+  }
+
   getMealsByFirstLetter(event: MealJsonResponse) {
     this.meals = event;
-    console.log(this.meals);
+  }
+
+  setFirstLetter(event: string) {
+    this.letter = event;
   }
 
   search(): void {

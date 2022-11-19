@@ -11,15 +11,18 @@ import { environment } from 'src/environments/environment';
 export class SearchComponent implements OnInit {
 
   @Output() searchByFirstLetterEvent = new EventEmitter<MealJsonResponse>();
+  @Output() isMealsEmptyEvent = new EventEmitter<boolean>();
+  @Output() firstLetterEvent = new EventEmitter<string>();
   meals: MealJsonResponse = new MealJsonResponse();
 
-  items: string[] = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+  letters: string[] = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
     this.meals.meals = null as any;
     this.searchByFirstLetterEvent.emit(this.meals);
+    this.isMealsEmptyEvent.emit(null as any);
   }
 
   searchByFirstLetter(letter: string): void {
@@ -27,6 +30,8 @@ export class SearchComponent implements OnInit {
       .subscribe({
         next: (res) => {
           this.meals = JSON.parse(JSON.stringify(res.body));
+          this.firstLetterEvent.emit(letter);
+          this.isMealsEmptyEvent.emit(this.isMealsEmpty(this.meals));
           this.searchByFirstLetterEvent.emit(this.meals);
       },
       error: (err) => {
@@ -34,6 +39,10 @@ export class SearchComponent implements OnInit {
         alert('ERROR POP UP SHOULD APPEAR!');
      }
     });
+  }
+
+  private isMealsEmpty(meals: MealJsonResponse): boolean {
+    return meals.meals === null ? true : false;
   }
 
 }

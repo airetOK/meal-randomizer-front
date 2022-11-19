@@ -20,10 +20,13 @@
     <app-card [meal]="meal"></app-card>
 </div>
 <div *ngIf="isSearchDialogVisible">
-    <app-search (searchByFirstLetterEvent)="getMealsByFirstLetter($event)"></app-search>
-    <div *ngIf="meals.meals !== null && meals.meals.length > 0">
+    <app-search (isMealsEmptyEvent)="showMeals($event)" 
+                (firstLetterEvent)="setFirstLetter($event)" 
+                (searchByFirstLetterEvent)="getMealsByFirstLetter($event)"></app-search>
+    <div *ngIf="meals.meals !== null && meals.meals.length > 0" class="card-container">
         <app-card *ngFor="let meal of meals.meals" [meal]="meal"></app-card>
     </div>
+    <div *ngIf="isMealsEmpty" class="mealsEmptyMessage">No meals were found by '{{letter}}'</div>
 </div>
 
 </div>

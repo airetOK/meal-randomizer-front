@@ -1,5 +1,5 @@
 <div class="search">
     <div class="container">
-        <span *ngFor="let item of items" (click)="searchByFirstLetter(item)">{{item}}</span>
+        <span *ngFor="let letter of letters" (click)="searchByFirstLetter(letter)">{{letter}}</span>
     </div>
 </div>
