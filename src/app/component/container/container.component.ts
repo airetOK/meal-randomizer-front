@@ -44,6 +44,10 @@ export class ContainerComponent implements OnInit {
     this.isMealsEmpty = event;
   }
 
+  setIsProgressBarVisible(event: boolean) {
+    this.isProgressBarVisible = event;
+  }
+
   getMealsByFirstLetter(event: MealJsonResponse) {
     this.meals = event;
   }

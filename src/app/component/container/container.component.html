@@ -22,7 +22,8 @@
 <div *ngIf="isSearchDialogVisible">
     <app-search (isMealsEmptyEvent)="showMeals($event)" 
                 (firstLetterEvent)="setFirstLetter($event)" 
-                (searchByFirstLetterEvent)="getMealsByFirstLetter($event)"></app-search>
+                (searchByFirstLetterEvent)="getMealsByFirstLetter($event)"
+                (showProgressBarEvent)="setIsProgressBarVisible($event)"></app-search>  
     <div *ngIf="meals.meals !== null && meals.meals.length > 0" class="card-container">
         <app-card *ngFor="let meal of meals.meals" [meal]="meal"></app-card>
     </div>

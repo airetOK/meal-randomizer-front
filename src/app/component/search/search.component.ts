@@ -13,6 +13,7 @@ export class SearchComponent implements OnInit {
   @Output() searchByFirstLetterEvent = new EventEmitter<MealJsonResponse>();
   @Output() isMealsEmptyEvent = new EventEmitter<boolean>();
   @Output() firstLetterEvent = new EventEmitter<string>();
+  @Output() showProgressBarEvent = new EventEmitter<boolean>();
   meals: MealJsonResponse = new MealJsonResponse();
 
   letters: string[] = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
@@ -26,6 +27,7 @@ export class SearchComponent implements OnInit {
   }
 
   searchByFirstLetter(letter: string): void {
+      this.showProgressBarEvent.emit(true);
       this.http.get(environment.API_URL + "/meal/v1/search?fl=" + letter, { observe: 'response' })
       .subscribe({
         next: (res) => {
@@ -33,9 +35,11 @@ export class SearchComponent implements OnInit {
           this.firstLetterEvent.emit(letter);
           this.isMealsEmptyEvent.emit(this.isMealsEmpty(this.meals));
           this.searchByFirstLetterEvent.emit(this.meals);
+          this.showProgressBarEvent.emit(false);
       },
       error: (err) => {
         console.error(err);
+        this.showProgressBarEvent.emit(false);
         alert('ERROR POP UP SHOULD APPEAR!');
      }
     });
